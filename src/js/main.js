@@ -1,12 +1,14 @@
-const tips = [
-    "Sāc ar mazām izmaiņām un palielini intensitāti!",
-    "Dzer daudz ūdens un atpūties pietiekami!",
-    "Saglabā konsekvenci – panākumi nāk ar laiku!",
-    "Apvieno spēka un kardio treniņus!",
-    "Ieklausies savā ķermenī un izvairies no pārmērīgas slodzes!"
-];
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".nav a");
 
-document.getElementById("tipButton").addEventListener("click", function() {
-    const randomTip = tips[Math.floor(Math.random() * tips.length)];
-    document.getElementById("tipText").textContent = randomTip;
-});
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: "smooth"
+    });}});});});
