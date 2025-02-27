@@ -1,4 +1,4 @@
-// Funkcija, lai iegūtu nejaušu fitnesa faktu
+
 function getRandomFitnessFact() {
     const fitnessFacts = [
         "Regulāra fiziskā aktivitāte uzlabo garastāvokli.",
@@ -11,7 +11,7 @@ function getRandomFitnessFact() {
     document.getElementById('random-fitness-fact').innerText = fitnessFacts[randomIndex];
 }
 
-// Funkcija, lai iegūtu kaķu faktu
+
 function getCatFact() {
     fetch('https://catfact.ninja/fact')
         .then(response => response.json())
@@ -24,17 +24,16 @@ function getCatFact() {
         });
 }
 
-// Funkcija, lai ielādētu jaunus faktus
+
 function loadNewFacts() {
     getRandomFitnessFact();
     getCatFact();
 }
 
-// Izsauciet funkcijas, kad lapa tiek ielādēta
 window.onload = function() {
     loadNewFacts();
 };
 
-// Pievienojiet notikumu klausītājus pogām
+
 document.getElementById('load-fitness-fact').addEventListener('click', getRandomFitnessFact);
 document.getElementById('load-cat-fact').addEventListener('click', getCatFact);
