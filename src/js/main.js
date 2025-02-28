@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
 
 function getRandomFitnessFact() {
     const fitnessFacts = [
@@ -11,7 +29,6 @@ function getRandomFitnessFact() {
     document.getElementById('random-fitness-fact').innerText = fitnessFacts[randomIndex];
 }
 
-
 function getCatFact() {
     fetch('https://catfact.ninja/fact')
         .then(response => response.json())
@@ -24,7 +41,6 @@ function getCatFact() {
         });
 }
 
-
 function loadNewFacts() {
     getRandomFitnessFact();
     getCatFact();
@@ -33,7 +49,6 @@ function loadNewFacts() {
 window.onload = function() {
     loadNewFacts();
 };
-
 
 document.getElementById('load-fitness-fact').addEventListener('click', getRandomFitnessFact);
 document.getElementById('load-cat-fact').addEventListener('click', getCatFact);
